@@ -28,8 +28,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random
 # Instanciate and train the SVM classifier
 clf = SVC(C=C)
 clf.fit(X_train, y_train)
+
+# Making predictions
 y_pred = clf.predict(X_test)
 
+# Report results on test (unseen) data
 print("Personalized metric (specificity & sensitivity): %f" % metric(y_test, y_pred))
 print("Macro F1 score: %f" % f1_score(y_test, y_pred, average='macro'))
 
